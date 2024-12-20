@@ -1,8 +1,15 @@
 # GeekDesk 极客桌面
+原始版本备份
+
+2024年12月20日13:22:07分割线
+
+===================================================
+
 小巧、**美观**的桌面快速启动管理工具, 同时集成了Everything搜索
+
 - [中文介绍](README-zh.md)
 - [English-machine translation](README.md)  
- 
+
 <img src="https://s4.ax1x.com/2021/12/15/TSrwfU.png" a border="0" width="800px"/>
 
 
@@ -24,6 +31,7 @@
 ## 集成Everything 快速搜索全盘文件
 - 2.5.14及之后版本集成了Everything功能  
   
+
 ![](https://s3.bmp.ovh/imgs/2023/04/25/ecfbf59916b9b854.gif)
 
 ## 全局热键 一键呼出 鼠标跟随

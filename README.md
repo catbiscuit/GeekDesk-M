@@ -1,8 +1,18 @@
 # GeekDesk 极客桌面
+
+
+原始版本备份
+
+2024年12月20日13:22:07分割线
+
+===================================================
+
 Small, **beautiful** desktop quickstart management tool with integrated Everything search
+
 - [中文介绍](README-zh.md)
 - [English-machine translation](README.md)
   
+
 <img src="https://s4.ax1x.com/2021/12/15/TSrwfU.png" a border="0" width="800px"/>
 
 
@@ -12,9 +22,9 @@ you can raise issues if you have good suggestions
 
 In addition, if you like GeekDesk, you may be able to buy anti-exfoliation shampoo for the author
 Of course, ordering a Star is also an incentive for the author~ 😊😊😊  
-  
+
 [**Paypal**](https://www.paypal.com/paypalme/BookerLiu) 
-  
+
 ### Other:
 <img src="https://z3.ax1x.com/2021/07/20/WYdfmR.jpg" alt="WYdfmR.jpg" border="0" width="400px"/>
 
@@ -27,6 +37,7 @@ Of course, ordering a Star is also an incentive for the author~ 😊😊😊
 ## Integrate Everything to quickly search the entire disk
 - Integrate Everything to quickly search the entire disk  
   
+
 ![](https://s3.bmp.ovh/imgs/2023/04/25/ecfbf59916b9b854.gif)
 
 ## Global hotkeys / one-click callout / mouse follow
