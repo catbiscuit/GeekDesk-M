@@ -232,7 +232,6 @@
                         <hc:NotifyIcon.ContextMenu>
                             <ContextMenu Width="130" x:Name="TaskbarContextMenu">
                                 <MenuItem Header="打开面板" Click="ShowApp"/>
-                                <MenuItem Header="拾色器" Click="ColorPicker"/>
                                 <MenuItem Header="备份" Click="BakDataFile"/>
                                 <MenuItem Header="隐藏图标" Click="CloseBarIcon"/>
                                 <MenuItem Header="待办"  Click="BacklogMenuClick"/>

@@ -230,12 +230,11 @@ namespace GeekDesk.ViewModel
         {
             get
             {
-                return enableColorPickerHotKey;
+                return false;
             }
             set
             {
-                enableColorPickerHotKey = value;
-                OnPropertyChanged("EnableColorPickerHotKey");
+
             }
         }
 

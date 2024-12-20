@@ -44,7 +44,6 @@ namespace GeekDesk
         public static ToDoInfoWindow toDoInfoWindow;
         public static int hotKeyId = -1;
         public static int toDoHotKeyId = -1;
-        public static int colorPickerHotKeyId = -1;
         public static MainWindow mainWindow;
 
        
@@ -314,11 +313,6 @@ namespace GeekDesk
                 RegisterCreateToDoHotKey(true);
             }
 
-            if (true == appData.AppConfig.EnableColorPickerHotKey)
-            {
-                RegisterColorPickerHotKey(true);
-            }
-
             //注册自启动
             if (!appData.AppConfig.SelfStartUped && !Constants.DEV)
             {
@@ -445,43 +439,7 @@ namespace GeekDesk
                     HandyControl.Controls.Growl.Warning("新建待办任务快捷键已被其它程序占用(" + appData.AppConfig.ToDoHotkeyStr + ")!", "HotKeyGrowl");
                 }
             }
-        }
-
-        /// <summary>
-        /// 注册新建待办的热键
-        /// </summary>
-        public static void RegisterColorPickerHotKey(bool first)
-        {
-            try
-            {
-                if (appData.AppConfig.HotkeyModifiers != GlobalHotKey.HotkeyModifiers.None)
-                {
-                    //加载完毕注册热键
-                    colorPickerHotKeyId = GlobalHotKey.RegisterHotKey(appData.AppConfig.ColorPickerHotkeyModifiers, appData.AppConfig.ColorPickerHotkey, () =>
-                    {
-                        if (MotionControl.hotkeyFinished)
-                        {
-                            GlobalColorPickerWindow.CreateNoShow();
-                        }
-                    });
-                    if (!first)
-                    {
-                        HandyControl.Controls.Growl.Success("拾色器快捷键注册成功(" + appData.AppConfig.ColorPickerHotkeyStr + ")!", "HotKeyGrowl");
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                if (first)
-                {
-                    HandyControl.Controls.Growl.WarningGlobal("拾色器快捷键已被其它程序占用(" + appData.AppConfig.ColorPickerHotkeyStr + ")!");
-                }
-                else
-                {
-                    HandyControl.Controls.Growl.Warning("拾色器快捷键已被其它程序占用(" + appData.AppConfig.ColorPickerHotkeyStr + ")!", "HotKeyGrowl");
-                }
-            }
-        }
+        }    
 
 
 
@@ -886,17 +844,6 @@ namespace GeekDesk
         {
             //防止延迟贴边隐藏
             RunTimeStatus.MARGIN_HIDE_AND_OTHER_SHOW = false;
-        }
-
-        /// <summary>
-        /// 打开屏幕拾色器
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ColorPicker(object sender, RoutedEventArgs e)
-        {
-            TaskbarContextMenu.IsOpen = false;
-            GlobalColorPickerWindow.CreateNoShow();
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)

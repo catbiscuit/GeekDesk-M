@@ -217,9 +217,6 @@
     <Compile Include="Control\UserControls\IconFont\IconPannel.xaml.cs">
       <DependentUpon>IconPannel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\Windows\GlobalColorPickerWindow.xaml.cs">
-      <DependentUpon>GlobalColorPickerWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Control\Windows\PixelColorPickerWindow.xaml.cs">
       <DependentUpon>PixelColorPickerWindow.xaml</DependentUpon>
     </Compile>
@@ -380,10 +377,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\UserControls\IconFont\IconPannel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\Windows\GlobalColorPickerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -234,7 +234,6 @@ namespace GeekDesk.Control.Windows
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Mouse.OverrideCursor = null;
-            GlobalColorPickerWindow.ShowOrHide();
             //关闭
             this.Close();
         }

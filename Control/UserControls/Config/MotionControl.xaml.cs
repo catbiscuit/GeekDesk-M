@@ -253,14 +253,6 @@ namespace GeekDesk.Control.UserControls.Config
                             }
                             MainWindow.RegisterCreateToDoHotKey(false);
                             break;
-                        case HotKeyType.ColorPicker:
-                            if (MainWindow.colorPickerHotKeyId != -1)
-                            {
-                                //Hotkey.UnRegist(new WindowInteropHelper(MainWindow.toDoInfoWindow).Handle, Hotkey.keymap[MainWindow.toDoHotKeyId]);
-                                GlobalHotKey.Dispose(MainWindow.colorPickerHotKeyId);
-                            }
-                            MainWindow.RegisterColorPickerHotKey(false);
-                            break;
                     }
 
                 }
@@ -361,19 +353,6 @@ namespace GeekDesk.Control.UserControls.Config
                         if (MainWindow.hotKeyId != -1)
                         {
                             GlobalHotKey.Dispose(MainWindow.toDoHotKeyId);
-                        }
-                    }
-                    break;
-                case HotKeyType.ColorPicker:
-                    if (true == appConfig.EnableColorPickerHotKey)
-                    {
-                        MainWindow.RegisterColorPickerHotKey(false);
-                    }
-                    else
-                    {
-                        if (MainWindow.hotKeyId != -1)
-                        {
-                            GlobalHotKey.Dispose(MainWindow.colorPickerHotKeyId);
                         }
                     }
                     break;
