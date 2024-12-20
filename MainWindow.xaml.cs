@@ -384,10 +384,6 @@ namespace GeekDesk
             MessageUtil.ChangeWindowMessageFilter(MessageUtil.WM_COPYDATA, 1);
 
 
-            if (!dataFileExist)
-            {
-                Guide();
-            }
         }
 
 
@@ -823,10 +819,6 @@ namespace GeekDesk
                 appData.AppConfig.WindowWidth = this.Width;
                 appData.AppConfig.WindowHeight = this.Height;
             }
-            if (guideRun)
-            {
-                Guide();
-            }
         }
 
 
@@ -1046,123 +1038,5 @@ namespace GeekDesk
             return hwnd;
         }
 
-        #region 新手引导
-
-        private int guideIndex = 0;
-        private bool guideRun = false;
-        private void Guide()
-        {
-            try
-            {
-                guideRun = true;
-                //防止影响主程序进程
-                if (CheckShouldShowApp())
-                {
-                    ShowApp();
-                }
-                GrayBorder.Visibility = Visibility.Visible;
-                GuideSwitch(guideIndex);
-                GuideCard.Visibility = Visibility.Visible;
-            }
-            catch (Exception) { guideRun = false; }
-        }
-
-        private void GuideSwitch(int index)
-        {
-            guideIndex = index;
-            GuideNum.Text = Convert.ToString(index + 1);
-            GuideTitle1.Text = GuideInfoList.mainWindowGuideList[index].Title1;
-            GuideTitle2.Text = GuideInfoList.mainWindowGuideList[index].Title2;
-            GuideText.Text = GuideInfoList.mainWindowGuideList[index].GuideText;
-
-            if (index == 0)
-            {
-                PreviewGuideBtn.Visibility = Visibility.Collapsed;
-                NextGuideBtn.Content = "下一步";
-            } else if (index > 0 && index < GuideInfoList.mainWindowGuideList.Count - 1)
-            {
-                PreviewGuideBtn.Visibility = Visibility.Visible;
-                NextGuideBtn.Content = "下一步";
-            } else
-            {
-                NextGuideBtn.Content = "完成";
-            }
-
-            switch (index)
-            {
-                default: //0  //右侧列表区域
-                    
-                    Point point = RightCard.TransformToAncestor(this).Transform(new Point(0, 0));
-                    //内部中上
-                    GrayBoderClip(point.X, point.Y, RightCard.ActualWidth, RightCard.ActualHeight,
-                        new Thickness(point.X + RightCard.ActualWidth / 2 - GuideCard.ActualWidth / 2, point.Y, 0, 0));
-                    break;
-                case 1:  //左侧菜单
-                    Point leftCardPoint = LeftCard.TransformToAncestor(this).Transform(new Point(0, 0));
-                    GrayBoderClip(leftCardPoint.X , leftCardPoint.Y , LeftCard.ActualWidth, LeftCard.ActualHeight,
-                        // 外部中下侧
-                        new Thickness(leftCardPoint.X + LeftCard.ActualWidth,
-                        leftCardPoint.Y + LeftCard.ActualHeight / 2 - GuideCard.ActualHeight / 2, 0, 0));
-                    break;
-                case 2: //头部拖拽栏
-                    GrayBoderClip(0, 0, this.Width, 50,
-                        // 外部中下侧
-                        new Thickness(this.Width / 2 - GuideCard.ActualWidth / 2, 50, 0, 0));
-                    break;
-                case 3:
-                    Point mainBtnPoint = MainBtnPanel.TransformToAncestor(this).Transform(new Point(0, 0));
-                    GrayBoderClip(mainBtnPoint.X, mainBtnPoint.Y, MainBtnPanel.ActualWidth, MainBtnPanel.ActualHeight,
-                        // 外部左下侧
-                        new Thickness(mainBtnPoint.X - GuideCard.Width,
-                        mainBtnPoint.Y, 0, 0));
-                    break;
-            }
-        }
-
-
-        private void GrayBoderClip(double x, double y, double w, double h, Thickness margin)
-        {
-            PathGeometry borGeometry = new PathGeometry();
-
-            RectangleGeometry rg = new RectangleGeometry();
-            rg.Rect = new Rect(0, 0, this.Width, this.Height);
-            borGeometry = Geometry.Combine(borGeometry, rg, GeometryCombineMode.Union, null);
-            GrayBorder.Clip = borGeometry;
-
-            RectangleGeometry rg1 = new RectangleGeometry();
-            rg1.Rect = new Rect(x - 20, y - 20, w, h);
-            borGeometry = Geometry.Combine(borGeometry, rg1, GeometryCombineMode.Exclude, null);
-            GuideCard.Margin = margin;
-            GrayBorder.Clip = borGeometry;
-        }
-
-        private void PreviewGuideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            int index = Convert.ToInt32(GuideNum.Text.ToString()) - 1;
-            int previewIndex = index - 1;
-            GuideSwitch(previewIndex);
-        }
-
-        private void NextGuideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if ("完成".Equals(NextGuideBtn.Content.ToString())) {
-                GrayBorder.Visibility = Visibility.Collapsed;
-                GuideCard.Visibility = Visibility.Collapsed;
-                guideIndex = 0;
-                guideRun = false;
-                return;
-            }
-            int index = Convert.ToInt32(GuideNum.Text.ToString()) - 1;
-            int nextIndex = index + 1;
-            GuideSwitch(nextIndex);
-        }
-
-
-        #endregion
-
-        private void Guide_Click(object sender, RoutedEventArgs e)
-        {
-            Guide();
-        }
     }
 }

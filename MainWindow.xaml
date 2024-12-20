@@ -81,60 +81,7 @@
             </hc:Poptip.Instance>-->
         </Border>
 
-        <hc:Card x:Name="GuideCard" Width="300" Height="180" Panel.ZIndex="888" 
-                 VerticalAlignment="Top"
-                 HorizontalAlignment="Left" Visibility="Collapsed">
-            <hc:Card.Background>
-                <SolidColorBrush Color="White" Opacity="0.85"/>
-            </hc:Card.Background>
-            <!--Card 的内容部分-->
-            <Border CornerRadius="4,4,0,0" Width="300" Height="100">
-                <TextBlock TextWrapping="Wrap" 
-                           x:Name="GuideText"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           LineHeight="22"
-                           FontSize="14"
-                           Text=""/>
-            </Border>
-            <!--Card 的尾部部分-->
-            <hc:Card.Footer>
-                <Grid>
-                    <StackPanel Margin="10" Width="150" Height="50" HorizontalAlignment="Left">
-                        <!--Card 的一级内容-->
-                        <WrapPanel>
-                            <TextBlock TextWrapping="Wrap"  
-                                   x:Name="GuideTitle1"
-                                   Style="{DynamicResource TextBlockLargeBold}" 
-                                   TextTrimming="CharacterEllipsis" 
-                                   Text="引导提示" 
-                                   FontSize="20"
-                                   HorizontalAlignment="Left"/>
-                            <TextBlock TextWrapping="Wrap"
-                                       x:Name="GuideNum"
-                                   Style="{DynamicResource TextBlockLargeBold}" 
-                                   TextTrimming="CharacterEllipsis" 
-                                   Text="1" 
-                                   FontSize="20"
-                                   HorizontalAlignment="Left"/>
-                        </WrapPanel>
-                        <!--Card 的二级内容-->
-                        <TextBlock TextWrapping="NoWrap" 
-                                   x:Name="GuideTitle2"
-                               Style="{DynamicResource TextBlockDefault}" 
-                               TextTrimming="CharacterEllipsis" 
-                               Text="快捷方式创建" 
-                               Margin="0,6,0,0"
-                               FontSize="14"
-                               HorizontalAlignment="Left"/>
-                    </StackPanel>
-                    <hc:UniformSpacingPanel HorizontalAlignment="Right">
-                        <Button Style="{StaticResource MyBtnStyle}" x:Name="PreviewGuideBtn" Click="PreviewGuideBtn_Click" Margin="0,0,20,0" Content="上一步"/>
-                        <Button Style="{StaticResource MyBtnStyle}" x:Name="NextGuideBtn" Click="NextGuideBtn_Click" Margin="0,0,20,0" Content="下一步"/>
-                    </hc:UniformSpacingPanel>
-                </Grid>
-            </hc:Card.Footer>
-        </hc:Card>
+        
 
 
         <Border Margin="20" CornerRadius="{Binding AppConfig.PannelCornerRadius, Mode=TwoWay, Converter={StaticResource IntToCornerRadius}}"  
@@ -212,7 +159,6 @@
                                     <ContextMenu x:Name="SettingMenus" Width="130">
                                         <MenuItem Header="设置" Click="ConfigMenuClick"/>
                                         <MenuItem Header="待办" Click="BacklogMenuClick"/>
-                                        <MenuItem Header="新手引导" Click="Guide_Click"/>
                                     </ContextMenu>
                                 </Button.ContextMenu>
                             </Button>
