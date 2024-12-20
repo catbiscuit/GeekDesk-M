@@ -128,13 +128,11 @@ namespace GeekDesk.ViewModel
         {
             get
             {
-                if (enableEveryThing == null) enableEveryThing = false;
-                return enableEveryThing;
+                return false;
             }
             set
             {
-                enableEveryThing = value;
-                OnPropertyChanged("EnableEveryThing");
+
             }
         }
 
@@ -144,13 +142,11 @@ namespace GeekDesk.ViewModel
         {
             get
             {
-                if (secondsWindow == null) secondsWindow = true;
-                return secondsWindow;
+                return false;
             }
             set
             {
-                secondsWindow = value;
-                OnPropertyChanged("SecondsWindow");
+
             }
         }
 

@@ -1,6 +1,5 @@
 ﻿using GeekDesk.Constant;
 using GeekDesk.Control.Windows;
-using GeekDesk.Plugins.EveryThing;
 using GeekDesk.Util;
 using GeekDesk.ViewModel;
 using GeekDesk.ViewModel.Temp;
@@ -245,37 +244,7 @@ namespace GeekDesk.Control.Other
         private static volatile bool EveryThingRuning = false;
         private void VerticalCard_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            if (MainWindow.appData.AppConfig.EnableEveryThing == true && EveryThingUtil.HasNext())
-            {
-                HandyControl.Controls.ScrollViewer sv = sender as HandyControl.Controls.ScrollViewer;
-                if (sv.ExtentHeight - (sv.ActualHeight + sv.VerticalOffset) < 100 
-                    && EveryThingUtil.HasNext()
-                    && !EveryThingRuning)
-                {
-                    EveryThingRuning = true;
-                    MainWindow.mainWindow.RightCard.Loading_RightCard.Visibility = Visibility.Visible;
-                    int everyThingCount = Convert.ToInt32(MainWindow.mainWindow.EverythingSearchCount.Text);
-
-                    ObservableCollection<IconInfo> resList = this.DataContext as ObservableCollection<IconInfo>;
-
-                    ThreadPool.QueueUserWorkItem(state =>
-                    {
-                        ObservableCollection<IconInfo> searchRes = EveryThingUtil.NextPage();
-                        this.Dispatcher.Invoke(() =>
-                        {
-                            everyThingCount += searchRes.Count;
-                            MainWindow.mainWindow.EverythingSearchCount.Text = Convert.ToString(everyThingCount);
-                            foreach (IconInfo info in searchRes)
-                            {
-                                resList.Add(info);
-                            }
-                            MainWindow.mainWindow.RightCard.Loading_RightCard.Visibility = Visibility.Collapsed;
-                            EveryThingRuning = false;
-                        });
-                    });
-
-                }
-            }
+         
         }
 
 

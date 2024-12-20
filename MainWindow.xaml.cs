@@ -5,15 +5,12 @@ using GeekDesk.Control.UserControls.PannelCard;
 using GeekDesk.Control.Windows;
 using GeekDesk.Interface;
 using GeekDesk.MyThread;
-using GeekDesk.Plugins.EveryThing;
-using GeekDesk.Plugins.EveryThing.Constant;
 using GeekDesk.Task;
 using GeekDesk.Util;
 using GeekDesk.ViewModel;
 using GeekDesk.ViewModel.Temp;
 using Microsoft.Win32;
 using NPinyin;
-using ShowSeconds;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -201,15 +198,6 @@ namespace GeekDesk
                     {
                         ObservableCollection<IconInfo> resList = new ObservableCollection<IconInfo>();
 
-                        if (appData.AppConfig.EnableEveryThing == true)
-                        {
-                            ObservableCollection<IconInfo> iconBakList = EveryThingUtil.Search(inputText);                            
-                            foreach (IconInfo icon in iconBakList)
-                            {
-                                resList.Add(icon);
-                            }
-                        }
-
                         int geekDeskCount = 0;
                         //GeekDesk数据搜索
                         ObservableCollection<MenuInfo> menuList = appData.MenuList;
@@ -230,14 +218,6 @@ namespace GeekDesk
 
                         this.Dispatcher.Invoke(() =>
                         {
-                            if (appData.AppConfig.EnableEveryThing == true)
-                            {
-                                int everythingTotal = Convert.ToInt32(EveryThingUtil.Everything_GetNumResults());
-                                GeekDeskSearchTotal.Text = Convert.ToString(geekDeskCount);
-                                EverythingSearchCount.Text = Convert.ToString(resList.Count - geekDeskCount);
-                                EverythingSearchTotal.Text = Convert.ToString(everythingTotal + geekDeskCount);
-                                SearchResContainer.Visibility = Visibility.Visible;
-                            }
                             SearchResControl control = new SearchResControl(resList);
                             RightCard.VerticalCard.Content = control;
                             //关闭加载效果
@@ -351,12 +331,6 @@ namespace GeekDesk
                 MouseHookThread.Hook();
             }
 
-            //显秒插件
-            if (appData.AppConfig.SecondsWindow == true)
-            {
-                SecondsWindow.ShowWindow();
-            }
-
             //监听实时文件夹菜单
             FileWatcher.EnableLinkMenuWatcher(appData);
 
@@ -372,12 +346,6 @@ namespace GeekDesk
 
             //设置归属桌面  解决桌面覆盖程序界面的bug
             WindowUtil.SetOwner(this, WindowUtil.GetDesktopHandle(this, DesktopLayer.Progman));
-
-            if (appData.AppConfig.EnableEveryThing == true)
-            {
-                //开启EveryThing插件
-                EveryThingUtil.EnableEveryThing();
-            }
 
             Keyboard.Focus(SearchBox);
 
@@ -833,10 +801,6 @@ namespace GeekDesk
             if (appData.AppConfig.MouseMiddleShow || appData.AppConfig.SecondsWindow == true)
             {
                 MouseHookThread.Dispose();
-            }
-            if (appData.AppConfig.EnableEveryThing == true)
-            {
-                EveryThingUtil.DisableEveryThing();
             }
             Application.Current.Shutdown();
         }

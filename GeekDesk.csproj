@@ -280,15 +280,6 @@
     <Compile Include="Converts\HideTypeConvert.cs" />
     <Compile Include="Interface\IWindowCommon.cs" />
     <Compile Include="MyThread\RelativePathThread.cs" />
-    <Compile Include="Plugins\EveryThing\Constant\EveryThingConst.cs" />
-    <Compile Include="Plugins\EveryThing\EveryThing32.cs" />
-    <Compile Include="Plugins\EveryThing\EveryThing64.cs" />
-    <Compile Include="Plugins\EveryThing\EveryThingUtil.cs" />
-    <Compile Include="Plugins\ShowSeconds\Common\Constants.cs" />
-    <Compile Include="Plugins\ShowSeconds\SecondsWindow.xaml.cs">
-      <DependentUpon>SecondsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Plugins\ShowSeconds\ViewModel\SecondsDataContext.cs" />
     <Compile Include="Task\ShowSecondTask.cs" />
     <Compile Include="Task\ToDoTask.cs" />
     <Compile Include="MyThread\MouseHookThread.cs" />
@@ -464,10 +455,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Plugins\ShowSeconds\SecondsWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Resource\Dictionary\Geometry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -502,18 +489,6 @@
     </EmbeddedResource>
     <Resource Include="Resource\Iconfont\iconfont.json" />
     <None Include="app.manifest" />
-    <None Include="Plugins\EveryThing\32\Everything.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Plugins\EveryThing\32\Everything.lng">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Plugins\EveryThing\64\Everything.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Plugins\EveryThing\64\Everything.lng">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Update.json" />
     <None Include="packages.config" />
@@ -586,23 +561,7 @@
     <Resource Include="Logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Plugins\EveryThing\lib\Everything32.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Plugins\EveryThing\lib\Everything64.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Plugins\EveryThing\32\Everything.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Plugins\EveryThing\64\Everything.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

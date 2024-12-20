@@ -32,25 +32,6 @@
                               hc:Poptip.Placement="Top"
                               />
                 </hc:UniformSpacingPanel>
-                <TextBlock Text="插件"  Margin="0,20,0,0"/>
-                <hc:UniformSpacingPanel Spacing="10" Margin="20,6,0,0">
-                    <CheckBox  Content="时钟显秒" 
-                               Style="{StaticResource MyCheckBoxStyle}"
-                               Click="ShowSeconds_Click" IsChecked="{Binding SecondsWindow}" 
-                               hc:Poptip.HitMode="None"
-                               hc:Poptip.IsOpen="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
-                               hc:Poptip.Content="仅Win11有效" 
-                               hc:Poptip.Placement="Top"
-                               />
-                    <CheckBox  Content="EveryThing搜索" 
-                               Style="{StaticResource MyCheckBoxStyle}"
-                               Click="EveryThing_Changed" IsChecked="{Binding EnableEveryThing}" 
-                               hc:Poptip.HitMode="None"
-                               hc:Poptip.IsOpen="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
-                               hc:Poptip.Content="勾选后若弹出用户帐户控制请选择是" 
-                               hc:Poptip.Placement="Top"
-                               />
-                </hc:UniformSpacingPanel>
                 <TextBlock Text="排序方式"  Margin="0,25,0,0"/>
 
                 <hc:UniformSpacingPanel Spacing="10" Margin="20,8,0,0">

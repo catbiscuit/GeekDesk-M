@@ -1,9 +1,7 @@
 ﻿using GeekDesk.Constant;
 using GeekDesk.MyThread;
-using GeekDesk.Plugins.EveryThing;
 using GeekDesk.Util;
 using GeekDesk.ViewModel;
-using ShowSeconds;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -120,20 +118,6 @@ namespace GeekDesk.Control.UserControls.Config
             CommonCode.BakAppData();
         }
 
-        private void ShowSeconds_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainWindow.appData.AppConfig.SecondsWindow == true)
-            {
-                //StartSecondsWindow();
-                SecondsWindow.ShowWindow();
-            }
-            else
-            {
-                SecondsWindow.CloseWindow();
-                //StopSecondsWindow();
-            }
-        }
-
         public static void StopSecondsWindow()
         {
             if (MessageUtil.CheckWindowIsRuning("ShowSeconds_Main_" + Constants.MY_UUID))
@@ -185,22 +169,6 @@ namespace GeekDesk.Control.UserControls.Config
                 }
             }
             catch (Exception ex) { }
-        }
-
-        /// <summary>
-        /// EveryThing插件开关
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EveryThing_Changed(object sender, RoutedEventArgs e)
-        {
-            if (MainWindow.appData.AppConfig.EnableEveryThing == true)
-            {
-                EveryThingUtil.EnableEveryThing(0);
-            } else
-            {
-                EveryThingUtil.DisableEveryThing(true);
-            }
         }
     }
 }

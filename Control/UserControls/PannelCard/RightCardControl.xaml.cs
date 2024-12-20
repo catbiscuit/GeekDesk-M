@@ -2,7 +2,6 @@
 using GeekDesk.Constant;
 using GeekDesk.Control.Other;
 using GeekDesk.Control.Windows;
-using GeekDesk.Plugins.EveryThing;
 using GeekDesk.Util;
 using GeekDesk.ViewModel;
 using GeekDesk.ViewModel.Temp;
