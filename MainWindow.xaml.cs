@@ -335,9 +335,6 @@ namespace GeekDesk
             FileWatcher.EnableLinkMenuWatcher(appData);
 
 
-            //更新线程开启  检测更新
-            UpdateThread.Update();
-
             //建立相对路径
             RelativePathThread.MakeRelativePath();
 

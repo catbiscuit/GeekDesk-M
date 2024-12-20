@@ -256,9 +256,6 @@
     <Compile Include="Control\Windows\IconfontWindow.xaml.cs">
       <DependentUpon>IconfontWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\Windows\UpdateWindow.xaml.cs">
-      <DependentUpon>UpdateWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Converts\CountGreZero2BoolConvert.cs" />
     <Compile Include="Converts\Count2VisibleConvert.cs" />
     <Compile Include="Converts\GetWidthByWWConvert.cs" />
@@ -284,7 +281,6 @@
     <Compile Include="Task\ToDoTask.cs" />
     <Compile Include="MyThread\MouseHookThread.cs" />
     <Compile Include="MyThread\DispatcherBuild.cs" />
-    <Compile Include="MyThread\UpdateThread.cs" />
     <Compile Include="Util\AeroGlassHelper.cs" />
     <Compile Include="Util\BGSettingUtil.cs" />
     <Compile Include="Util\BlurGlassUtil.cs" />
@@ -436,10 +432,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\Windows\IconfontWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\Windows\UpdateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
